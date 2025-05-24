@@ -1,0 +1,89 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>OLAP_AdiddasUS_Sales</Database>
+    <Server>_SLONE_\SLAVE</Server>
+    <ConnectionString>Data Source=_SLONE_\SLAVE;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>W6zaNGNYGzJzaG3tzVE29Y2AiMY=3/12/2025 2:20:35 AM3/12/2025 2:20:35 AM</TimeStamp>
+        <ID>
+          <String>StarSchema_AdiddasUS_Sales</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>9bZTO1iOK26tUIG9autPsGdhnQA=3/12/2025 2:22:05 AM3/12/2025 2:22:04 AM</TimeStamp>
+        <ID>
+          <String>Olap_Adiddas US Sales_View</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>rB+NC06EB8PiYI/pfmWxSF0uiBI=3/12/2025 2:31:58 AM3/12/2025 2:23:44 AM</TimeStamp>
+        <ID>
+          <String>Dim Location</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>0yyGUFcxwNqfexyjWcobB0cOH2s=3/12/2025 2:33:18 AM3/12/2025 2:23:44 AM</TimeStamp>
+        <ID>
+          <String>Dim Retailer</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>5Kd6igK8JcrEPAlsKUv5kanoLX4=3/12/2025 2:33:18 AM3/12/2025 2:23:44 AM</TimeStamp>
+        <ID>
+          <String>Dim Time</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>OYdHE7RUTtuTVnQHKlIVRNXOv+g=3/12/2025 2:33:44 AM3/12/2025 2:23:44 AM</TimeStamp>
+        <ID>
+          <String>Dim Product</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>GIbuE9trLANYNN/kQ7yvISugNTg=3/13/2025 5:20:09 PM3/12/2025 9:30:56 AM</TimeStamp>
+        <ID>
+          <String>Fact Sales</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>ahynJ4UwC0Wvira39ziQzLaJfVg=3/19/2025 5:02:52 PM3/12/2025 2:23:44 AMxtCykPJgoKNkVbhL1HVrPq/3WVo=3/12/2025 2:23:45 AM3/12/2025 2:23:44 AM</TimeStamp>
+        <ID>
+          <String>Olap_Adiddas US Sales_View</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>RTpCzhZ0F7pfsvKz0CGcZ7qE3wg=3/12/2025 2:16:10 AM3/12/2025 2:16:10 AM</TimeStamp>
+      <ID>
+        <String>OLAP_AdiddasUS_Sales</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2025-03-19T10:04:46.816667Z</LastDeployed>
+</DeploymentSnapshot>
