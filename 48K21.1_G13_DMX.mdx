@@ -1,0 +1,53 @@
+﻿--1. Tổng hợp Doanh số, loi nhuan, so luong ban ra theo năm
+SELECT 
+    {[Measures].[Total Sales],[Operating Profit],[Unit Sold]}ON COLUMNS, 
+    Non empty [Dim Time].[Invoice Year].MEMBERS ON ROWS
+FROM [Olap_Adiddas US Sales_View]
+
+--2. Tổng số lượng sản phẩm theo loai hang bán ra theo từng khu vực
+SELECT
+	NON EMPTY [Dim Location].[Region].[Region] ON COLUMNS,
+	NON EMPTY [Dim Product].[Category].MEMBERS ON ROWS
+FROM [Olap_Adiddas US Sales_View] 
+WHERE [Measures].[Unit Sold]
+
+--3. Top 5 nhà bán lẻ có doanh thu cao nhất
+SELECT 
+    TOPCOUNT([Dim Retailer].[Retailer Name].MEMBERS, 5, [Measures].[Total Sales]) ON ROWS,
+    [Measures].[Total Sales] ON COLUMNS
+FROM [Olap_Adiddas US Sales_View]
+
+--4. Tong loi nhuan theo phuong thuc ban hang o cac State
+SELECT 
+    non empty [Fact Sales].[Sales Method].[Sales Method]ON COLUMNS, 
+    non empty ([Dim Location].[State].[State].MEMBERS) ON ROWS
+FROM [Olap_Adiddas US Sales_View]
+where [Measures].[Operating Profit]
+
+--5. Doanh thu va loi nhuan theo danh mục sản phẩm và năm
+SELECT 
+    {[Measures].[Total Sales],[Operating Margin]} ON COLUMNS, 
+	non empty order ([Dim Product].[Category].[Category]*[Dim Time].[Invoice Year].MEMBERS, [Measures].[Total Sales], desc ) ON ROWS
+FROM [Olap_Adiddas US Sales_View]
+
+--6. Doanh thu theo từng thành phố, sắp xếp giảm dần
+SELECT 
+    non empty ORDER([Dim Location].[City].[City].MEMBERS, [Measures].[Total Sales], DESC) ON ROWS,
+    [Measures].[Total Sales] ON COLUMNS
+FROM [Olap_Adiddas US Sales_View]
+
+--7. Doanh thu và lợi nhuận theo Nhà bán lẻ ở từng khu vực
+SELECT 
+    non empty order ([Dim Retailer].[Retailer Name].[Retailer Name]*[Dim Location].[Region].MEMBERS, [Measures].[Total Sales], desc) ON ROWS,
+    {[Measures].[Total Sales],[Operating Profit]} ON COLUMNS
+FROM [Olap_Adiddas US Sales_View]
+
+--8. Doanh thu trung bình của mỗi nhà bán lẻ
+WITH MEMBER [Measures].[Avg Revenue Per Retailer] AS
+    AVG([Dim Retailer].[Retailer Name].MEMBERS, [Measures].[Total Sales]),
+    FORMAT_STRING = "0"
+SELECT 
+    [Measures].[Avg Revenue Per Retailer] ON COLUMNS, 
+    [Dim Location].[Region].MEMBERS ON ROWS
+FROM [Olap_Adiddas US Sales_View]
+
